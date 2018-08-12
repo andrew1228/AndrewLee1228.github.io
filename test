@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+
+<body width="100%">
+    <h3>JS <-> APP</h3>
+
+    <div class="container">
+        <ul>
+            <li>
+                <button class="btn btn-submit" onclick="button_signin(`kakao`);">Sign In Kakao</button>
+            </li>
+            <li>
+                <button class="btn btn-submit" onclick="button_signin(`naver`);">Sign In Naver</button>
+            </li>
+            <li>
+                <button class="btn btn-submit" onclick="logout();">Logout</button>
+            </li>
+        </ul>
+    </div>
+
+    <h3>로컬에 있는 이미지를 바로 브라우저에 표시</h3>
+    <img id="preview" src="" width="200px" alt="로컬에 있는 이미지가 보여지는 영역">
+    <input type="file" id="getfile" accept="image/*">
+</body>
+
+</html>
