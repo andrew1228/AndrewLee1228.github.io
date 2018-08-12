@@ -3,7 +3,6 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <script type="text/javascript" src="https://codepen.io/YoungHee/pen/pZGBBM.js"></script>
     <link rel="stylesheet" type="text/css" href="https://codepen.io/YoungHee/pen/pZGBBM.css">
 </head>
 
@@ -27,6 +26,42 @@
     <h3>로컬에 있는 이미지를 바로 브라우저에 표시</h3>
     <img id="preview" src="" width="200px" alt="로컬에 있는 이미지가 보여지는 영역">
     <input type="file" id="getfile" accept="image/*">
+        
+        <script>
+      var file = document.querySelector('#getfile');
+
+file.onchange = function () {
+  var fileList = file.files;
+ 
+  // 읽기
+  var reader = new FileReader();
+  reader.readAsDataURL(fileList[0]);
+
+  //로드 한 후
+  reader.onload = function () {
+    document.querySelector('#preview').src = reader.result;
+  };
+};
+
+function button_signin(loginType) {
+  window.webkit.messageHandlers.requestSNSLogin.postMessage(loginType);
+}
+
+function loginSuccess(result) {
+  alert(result);
+  window.webkit.messageHandlers.requestRegisterPushToken.postMessage();
+}
+
+function updatePushToken(token) {
+  alert('token : ' + token);
+}
+
+function logout() {
+  alert('로그아웃 요청');
+  window.webkit.messageHandlers.requestLogout.postMessage('');
+}
+      //# sourceURL=pen.js
+    </script>
 </body>
 
 </html>
