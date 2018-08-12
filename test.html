@@ -49,7 +49,7 @@ function button_signin(loginType) {
 
 function loginSuccess(result) {
   alert(result);
-  window.webkit.messageHandlers.requestRegisterPushToken();
+  window.webkit.messageHandlers.requestRegisterPushToken.postMessage('');
 }
 
 function updatePushToken(token) {
