@@ -21,8 +21,17 @@ export const dragonNative = ((_) => {
   const iOSAdapter = {
     type: 'IOS',
     requestSNSLogin: (param) => {
-      iOSHandler.postMessage({ command : "requestSNSLogin", value : param});
+        iOSHandler.postMessage({ command : "requestSNSLogin", value : param});
+        alert(`iOSHandler.postMessage({ command : "requestSNSLogin", value : param});`)
     },
+    requestRegisterPushToken: () => {
+        iOSHandler.postMessage({command: "requestRegisterPushToken"})
+        alert(`iOSHandler.postMessage({command: "requestRegisterPushToken"})`)
+    },
+    requestLogout: () => {
+        iOSHandler.postMessage({command: "requestRegisterPushToken"})
+        alert(`iOSHandler.postMessage({command: "requestRegisterPushToken"})`)
+    }
   };
 
   const androidHandlerName = 'dragon';
@@ -36,8 +45,17 @@ export const dragonNative = ((_) => {
   const andoidAdapter = {
     type: 'ANDROID',
     requestSNSLogin: (param) => {
-      androidHandler.requestSNSLogin(param);
+        androidHandler.requestSNSLogin(param);
+        alert(`androidHandler.requestSNSLogin(param);`)
     },
+    requestRegisterPushToken: () => {
+        androidHandler.requestRegisterPushToken();
+        alert(`androidHandler.requestRegisterPushToken();`)
+    },
+    requestLogout: () => {
+        androidHandler.requestLogout();
+        alert(`androidHandler.requestLogout();`)
+    }
   };
 
   const webAdapter = {
